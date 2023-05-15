@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+   <!-- React的核心包,提供React的核心语法 -->
+    <script src="../react18/react.development.js"></script>
+    <!-- React操作DOM的包,提供DOM相关的语法 -->
+    <script src="../react18/react-dom.development.js"></script>
+    <script src="../react18/babel.min.js"></script>
+</head>
+<body>
+  <div id="app"></div>
+  <script type="text/babel">
+
+    //1.创建一个虚拟DOM
+    const vDom = React.createElement("h1",{}, "hello world");
+
+    //2.创建一个React的根容器节点
+    const root = ReactDOM.createRoot(document.getElementById("app"));
+
+    //3.在React的根容器节点中渲染虚拟DOM
+    root.render(vDom);
+  </script>
+  
+</body>
+</html>
