@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React Template</title>
+    <!-- React的核心包 -->
+    <script src="../react18/react.development.js"></script>
+    <!-- React操作DOM的包 -->
+    <script src="../react18/react-dom.development.js"></script>
+    <!-- Babel转换器，用于编译JSX语法 -->
+    <script src="../react18/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="text/babel">
+      // 在这里编写React组件代码
+      const arr = ["张三", "李四", "王武"];
+      const vDOM = (
+        <ul>
+          {arr.map((item) => {
+            return <li>{item}</li>;
+          })}
+        </ul>
+      );
+      ReactDOM.createRoot(document.getElementById("app")).render(vDOM);
+    </script>
+  </body>
+</html>

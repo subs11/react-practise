@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React Template</title>
+    <!-- React的核心包 -->
+    <script src="../react18/react.development.js"></script>
+    <!-- React操作DOM的包 -->
+    <script src="../react18/react-dom.development.js"></script>
+    <!-- Babel转换器，用于编译JSX语法 -->
+    <script src="../react18/babel.min.js"></script>
+</head>
+<body>
+  <div id="app"></div>
+  <script type="text/babel">
+    // 在这里编写React组件代码
+    const vDOM = (
+      <div>
+        <h1 style={{color:"red",fontSize:"30px",backgroundColor:"yellow"}}>h1111</h1>
+        </div>
+    );
+
+    const root = ReactDOM.createRoot(document.getElementById("app"));
+
+    root.render(vDOM);
+  </script>
+</body>
+</html>
