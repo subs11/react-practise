@@ -1,0 +1,82 @@
+<!-- language: lang-html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React Template</title>
+    <!-- React的核心包 -->
+    <script src="../react18/react.development.js"></script>
+    <!-- React操作DOM的包 -->
+    <script src="../react18/react-dom.development.js"></script>
+    <!-- Babel转换器，用于编译JSX语法 -->
+    <script src="../react18/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="text/babel">
+      // 在这里编写React组件代码
+      class Child extends React.Component {
+        state = {
+          num: 0,
+        };
+        render() {
+          const { num } = this.state;
+          console.log("Child的render方法");
+          return (
+            <div>
+              <h1>Child</h1>
+              <h2>num:{this.state.num}</h2>
+              <h3>num:{num}</h3>
+              <button
+                onClick={() => {
+                  this.setState({ num: this.state.num + 1 });
+                }}
+              >
+                num累加
+              </button>
+              <button onClick={()=>{
+                this.forceUpdate()
+              }}>强制更新</button>
+            </div>
+          );
+        }
+
+        //更新阶段生命周期函数-阀门,返回布尔值决定是否执行更新
+        shouldComponentUpdate() {
+          return false;
+        }
+        componentDidUpdate() {
+          console.log("Child组件更新完成");
+        }
+      }
+
+      class App extends React.Component {
+        state = {
+          count: 0,
+        };
+        render() {
+          const { count } = this.state;
+          console.log("----render-----");
+          return (
+            <div>
+              <h1>App</h1>
+              <h2>{count}</h2>
+              <button
+                onClick={() => {
+                  this.setState({ count: count + 1 });
+                }}
+              >
+                count累加
+              </button>
+              <Child count = {count} />
+            </div>
+          );
+        }
+      }
+
+      ReactDOM.createRoot(document.getElementById("app")).render(<App />);
+    </script>
+  </body>
+</html>
